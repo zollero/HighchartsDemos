@@ -46,6 +46,9 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
-
+# =============================
 # Personal ignore folders
+# =============================
 node_modules
+lib
+.idea
