@@ -1,0 +1,24 @@
+{
+  "name": "highcharts-demos",
+  "version": "1.0.0",
+  "description": "Demos of highcharts.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zuaKevin/HighchartsDemos.git"
+  },
+  "author": "Hua",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zuaKevin/HighchartsDemos/issues"
+  },
+  "homepage": "https://github.com/zuaKevin/HighchartsDemos#readme",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-jshint": "^1.0.0",
+    "grunt-contrib-watch": "^0.6.1"
+  }
+}

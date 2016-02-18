@@ -1,0 +1,15 @@
+{
+  "boss": true,
+  "curly": true,
+  "eqeqeq": true,
+  "eqnull": true,
+  "newcap": true,
+  "noarg": true,
+  "undef": true,
+  "browser": true,
+  "devel": true,
+  "node": true,
+  "lastsemic": true,
+  "bitwise": true,
+  "freeze": true
+}
