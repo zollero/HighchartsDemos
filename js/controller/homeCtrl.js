@@ -1,8 +1,8 @@
 
 
 angular.module("main.homeCtrl", ["ionic"])
-    .controller("homeCtrl", ["$scope", "$location", function($scope, $location) {
-        $scope.name = "Home";
+    .controller("HomeCtrl", ["$scope", "$location", function($scope, $location) {
+        $scope.moduleTitle = "Home";
         console.log($scope.name);
         console.log($location);
     }]);

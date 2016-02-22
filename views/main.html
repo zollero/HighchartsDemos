@@ -1,26 +1,31 @@
 <ion-view title="Home">
     <ion-side-menus ng-controller="MainController">
         <ion-side-menu-content drag-content="false">
-            <ion-header-bar align-title="center" class="bar-positive">
-                <!--<div class="buttons">-->
-                <!--<button class="button">返回</button>-->
-                <!--</div>-->
-                <h1 class="title">Home</h1>
-            </ion-header-bar>
+            <!--<ion-header-bar align-title="center" class="bar-positive">-->
+                <!--&lt;!&ndash;<div class="buttons">&ndash;&gt;-->
+                <!--&lt;!&ndash;<button class="button">返回</button>&ndash;&gt;-->
+                <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                <!--<h1 class="title">Home</h1>-->
+            <!--</ion-header-bar>-->
+            <ion-nav-bar class="bar-positive nav-title-slide-ios7" align-title="center">
+                <ion-nav-back-button class="button-clear">
+                    <i class="icon ion-ios-arrow-back"></i> Back
+                </ion-nav-back-button>
+            </ion-nav-bar>
             <ion-tabs class="tabs-icon-top tabs-positive">
                 <ion-tab title="Home" icon-off="ion-ios-book-outline" icon-on="ion-ios-book" href="#/main/home">
-                    <ion-nav-view name="HomeView"></ion-nav-view>
+                    <ion-nav-view name="homeView"></ion-nav-view>
                 </ion-tab>
-                <ion-tab title="线性" icon-off="ion-ios-calculator-outline" icon-on="ion-ios-calculator" href="#/music">
-                    <ion-nav-view name="LineView"></ion-nav-view>
+                <ion-tab title="线性" icon-off="ion-ios-list-outline" icon-on="ion-ios-list" href="#/main/line">
+                    <ion-nav-view name="lineView"></ion-nav-view>
                 </ion-tab>
-                <ion-tab title="柱状" icon-off="ion-ios-list-outline" icon-on="ion-ios-list" href="#/">
-                    <ion-nav-view name="columView"></ion-nav-view>
+                <ion-tab title="柱状" icon-off="ion-ios-list-outline" icon-on="ion-ios-list" href="#/main/column">
+                    <ion-nav-view name="columnView"></ion-nav-view>
                 </ion-tab>
-                <ion-tab title="饼状" icon-off="ion-ios-list-outline" icon-on="ion-ios-list" href="#/">
+                <ion-tab title="饼状" icon-off="ion-ios-list-outline" icon-on="ion-ios-list" href="#/main/cake">
                     <ion-nav-view name="cakeView"></ion-nav-view>
                 </ion-tab>
-                <ion-tab title="复合" icon-off="ion-ios-list-outline" icon-on="ion-ios-list" href="#/">
+                <ion-tab title="复合" icon-off="ion-ios-list-outline" icon-on="ion-ios-list" href="#/main/complex">
                     <ion-nav-view name="complexView"></ion-nav-view>
                 </ion-tab>
             </ion-tabs>
