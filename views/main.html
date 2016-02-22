@@ -1,0 +1,29 @@
+<ion-view title="Home">
+    <ion-side-menus ng-controller="MainController">
+        <ion-side-menu-content drag-content="false">
+            <ion-header-bar align-title="center" class="bar-positive">
+                <!--<div class="buttons">-->
+                <!--<button class="button">返回</button>-->
+                <!--</div>-->
+                <h1 class="title">Home</h1>
+            </ion-header-bar>
+            <ion-tabs class="tabs-icon-top tabs-positive">
+                <ion-tab title="Home" icon-off="ion-ios-book-outline" icon-on="ion-ios-book" href="#/main/home">
+                    <ion-nav-view name="HomeView"></ion-nav-view>
+                </ion-tab>
+                <ion-tab title="线性" icon-off="ion-ios-calculator-outline" icon-on="ion-ios-calculator" href="#/music">
+                    <ion-nav-view name="LineView"></ion-nav-view>
+                </ion-tab>
+                <ion-tab title="柱状" icon-off="ion-ios-list-outline" icon-on="ion-ios-list" href="#/">
+                    <ion-nav-view name="columView"></ion-nav-view>
+                </ion-tab>
+                <ion-tab title="饼状" icon-off="ion-ios-list-outline" icon-on="ion-ios-list" href="#/">
+                    <ion-nav-view name="cakeView"></ion-nav-view>
+                </ion-tab>
+                <ion-tab title="复合" icon-off="ion-ios-list-outline" icon-on="ion-ios-list" href="#/">
+                    <ion-nav-view name="complexView"></ion-nav-view>
+                </ion-tab>
+            </ion-tabs>
+        </ion-side-menu-content>
+    </ion-side-menus>
+</ion-view>

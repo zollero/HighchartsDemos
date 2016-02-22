@@ -21,6 +21,12 @@
   ],
   "dependencies": {
     "jquery": "^2.2.0",
-    "highcharts": "^4.2.3"
+    "highcharts": "^4.2.3",
+    "angular": "^1.5.0",
+    "ionic": "^1.2.4",
+    "oclazyload": "ocLazyLoad#^1.0.9"
+  },
+  "resolutions": {
+    "angular": ">= 1.0.8"
   }
 }

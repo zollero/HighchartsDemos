@@ -3,14 +3,14 @@ module.exports = function (grunt) {
 
     grunt.initConfig({
         jshint: {
-            build: ['Gruntfile.js', '*.js'],
+            build: ['Gruntfile.js', 'js/controller/*.js'],
             options: {
                 jshintrc: '.jshintrc'
             }
         },
         watch: {
             build: {
-                files: ['*.js'],
+                files: ['js/controller/*.js'],
                 tasks: ['jshint'],
                 options: {
                     spawn: false
