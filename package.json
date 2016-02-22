@@ -2,7 +2,6 @@
   "name": "highcharts-demos",
   "version": "1.0.0",
   "description": "Demos of highcharts.",
-  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,7 +9,7 @@
     "type": "git",
     "url": "git+https://github.com/zuaKevin/HighchartsDemos.git"
   },
-  "author": "Hua",
+  "author": "Hua Zhang <corona7@163.com>",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/zuaKevin/HighchartsDemos/issues"
