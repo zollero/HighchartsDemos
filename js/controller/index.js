@@ -21,7 +21,8 @@ app.config(["$routeProvider", function($routeProvider) {
         redirectTo: "/"
     });
 }]).controller("NavController", ["$scope", "$location", function($scope, $location) {
-    $scope.navIndex = "/";
+    //Init navIndex on route
+    $scope.navIndex = $location.path();
     $scope.navs = [{
         name: "Home",
         url: "/"
