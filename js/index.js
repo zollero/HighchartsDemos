@@ -6,17 +6,13 @@ app.config(["$routeProvider", function($routeProvider) {
         templateUrl: "./views/home.html",
         controller: 'HomeController'
     }).when("/line", {
-        templateUrl: "./views/line-list.html",
-        controller: "LineController"
+        templateUrl: "./views/line-list.html"
     }).when("/pie", {
-        templateUrl: "./views/pie-list.html",
-        controller: "PieController"
+        templateUrl: "./views/pie-list.html"
     }).when("/column", {
-        templateUrl: "./views/column-list.html",
-        controller: "ColumnController"
+        templateUrl: "./views/column-list.html"
     }).when("/complex", {
-        templateUrl: "./views/complex-list.html",
-        controller: "ComplexController"
+        templateUrl: "./views/complex-list.html"
     }).otherwise({
         redirectTo: "/"
     });
@@ -42,7 +38,7 @@ app.config(["$routeProvider", function($routeProvider) {
     $scope.changeLocation = function(url) {
         $scope.navIndex = url;
         $location.url(url);
-    }
+    };
 }]).controller("HomeController", ["$scope", function($scope) {
     $scope.items = [{
         title: "介绍",
@@ -58,20 +54,12 @@ app.config(["$routeProvider", function($routeProvider) {
             "6. 文字旋转：支持在任意方向的标签旋转。"
         ]
     }];
-}]).controller("LineController", ["$scope", function($scope) {
-
-}]).controller("PieController", ["$scope", function($scope) {
-    //$scope.navs = ["Home", "线性", "饼状", "柱状", "复合"];
-}]).controller("ColumnController", ["$scope", function($scope) {
-    //$scope.navs = ["Home", "线性", "饼状", "柱状", "复合"];
-}]).controller("ComplexController", ["$scope", function($scope) {
-    //$scope.navs = ["Home", "线性", "饼状", "柱状", "复合"];
 }]);
 
-//线性图标
+//线性图表
 app.directive("lineChart", function() {
-    return function(scope, element, attrs) {
-        // 线性图标调用
+    return function(scope, element) {
+        // 线性图表调用
         $(element).highcharts({
             chart: {
                 type: 'line'
@@ -112,12 +100,12 @@ app.directive("lineChart", function() {
                 data: [3.9, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0, 16.6, 14.2, 10.3, 6.6, 4.8]
             }]
         });
-    }
+    };
 });
 
 //饼图
 app.directive("pieChart", function() {
-	return function(scope, element, attrs) {
+	return function(scope, element) {
 		//饼图调用
 		$(element).highcharts({
 			chart: {
@@ -158,13 +146,13 @@ app.directive("pieChart", function() {
 	                ['Others',   0.7]
 	            ]
 	        }]
-		})
-	}
+		});
+	};
 });
 
 //柱状图
 app.directive("columnChart", function() {
-	return function(scope, element, attrs) {
+	return function(scope, element) {
 		//柱状图调用
 		$(element).highcharts({
 			chart: {
@@ -221,13 +209,13 @@ app.directive("columnChart", function() {
 	            data: [83.6, 78.8, 98.5, 93.4, 106.0, 84.5, 105.0, 104.3, 91.2, 83.5, 106.6, 92.3]
 	
 	        }]
-		})
-	}
+		});
+	};
 });
 
 //柱状、曲线、饼图混合图
 app.directive("complexChart", function() {
-	return function(scope, element, attrs) {
+	return function(scope, element) {
 		$(element).highcharts({
 			chart: {                                                          
 	        },                                                                
@@ -304,7 +292,7 @@ app.directive("complexChart", function() {
 	                enabled: false                                            
 	            }                                                             
 	        }]
-		})
-	}
+		});
+	};
 });
 
