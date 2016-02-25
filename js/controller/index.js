@@ -254,7 +254,7 @@ app.directive("complexChart", function() {
 	            items: [{                                                     
 	                html: 'Total fruit consumption',                          
 	                style: {                                                  
-	                    left: '40px',                                         
+	                    left: '20px',                                         
 	                    top: '8px',                                           
 	                    color: 'black'                                        
 	                }                                                         
@@ -297,7 +297,7 @@ app.directive("complexChart", function() {
 	                y: 19,                                                    
 	                color: Highcharts.getOptions().colors[2] // Joe's color   
 	            }],                                                           
-	            center: [60, 80],                                            
+	            center: [40, 60],                                            
 	            size: 100,                                                    
 	            showInLegend: false,                                          
 	            dataLabels: {                                                 
