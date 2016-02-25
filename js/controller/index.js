@@ -22,7 +22,7 @@ app.config(["$routeProvider", function($routeProvider) {
     });
 }]).controller("NavController", ["$scope", "$location", function($scope, $location) {
     //Init navIndex on route
-    $scope.navIndex = $location.path();
+    $scope.navIndex = $location.path() === "" ? "/" : $location.path();
     $scope.navs = [{
         name: "Home",
         url: "/"
@@ -58,7 +58,6 @@ app.config(["$routeProvider", function($routeProvider) {
             "6. 文字旋转：支持在任意方向的标签旋转。"
         ]
     }];
-
 }]).controller("LineController", ["$scope", function($scope) {
 
 }]).controller("PieController", ["$scope", function($scope) {
@@ -69,8 +68,10 @@ app.config(["$routeProvider", function($routeProvider) {
     //$scope.navs = ["Home", "线性", "饼状", "柱状", "复合"];
 }]);
 
-app.directive("linePhoto", function() {
+//线性图标
+app.directive("lineChart", function() {
     return function(scope, element, attrs) {
+        // 线性图标调用
         $(element).highcharts({
             chart: {
                 type: 'line'
@@ -110,7 +111,7 @@ app.directive("linePhoto", function() {
                 name: 'London',
                 data: [3.9, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0, 16.6, 14.2, 10.3, 6.6, 4.8]
             }]
-        })
+        });
     }
 });
 
