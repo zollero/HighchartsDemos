@@ -1,5 +1,5 @@
 // Init page settings
-var app = angular.module("HighchartDemoApp", ["ngRoute", "oc.lazyLoad"]);
+var app = angular.module("HighchartDemoApp", ["ngRoute"]);
 
 app.config(["$routeProvider", function($routeProvider) {
     $routeProvider.when("/", {

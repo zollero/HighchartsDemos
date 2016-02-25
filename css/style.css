@@ -29,6 +29,8 @@ p {
     line-height: 40px;
     -webkit-box-flex: 1;
     width: 1px;
+    border-right: 1px solid #fff;
+    cursor: pointer;
 }
 
 .tab-nav.on {
