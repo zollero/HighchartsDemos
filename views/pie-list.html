@@ -1,3 +1,118 @@
 <h3>饼图</h3>
 
 <div pie-chart></div>
+
+<div class="code-area">
+	<h4>HTML代码：</h4>
+	<div class="code-block">
+		<h5>angular + jquery:</h5>
+		<xmp class="xmpCtrl">
+            <div pie-chart>
+                //图标将要渲染的容器渲染
+            </div>
+        </xmp>
+        <h5>jquery:</h5>
+        <xmp class="xmpCtrl">
+            <div id="container">
+                //图标将要渲染的容器渲染
+            </div>
+        </xmp>
+    </div>
+     
+    <h4>JavaSrcipt代码：</h4>
+    <div class="code-block">
+    	<h5>angular + jquery:</h5>
+        <xmp class="xmpCtrl">
+            app.directive("pieChart", function() {
+                return function(scope, element, attrs) {
+                    // 饼图调用
+                    $(element).highcharts({
+                        chart: {
+                            plotBackgroundColor: null,
+                            plotBorderWidth: null,
+                            plotShadow: false
+                        },
+                        title: {
+                            text: 'Browser market shares at a specific website, 2010'
+                        },
+                        tooltip: {
+                            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                        },
+                        plotOptions: {
+                            pie: {
+                            	allowPointSelect: true,
+                            	cursor: 'pointer',
+                                dataLabels: {
+                                    enabled: false
+                                },
+                                showInlegend: true
+                            }
+                        },
+                        series: [{
+                            type: 'pie',
+                            name: 'Browser share',
+                            data: [
+                            	['Firefox', 45.0],
+                            	['IE', 26.8],
+                            	{
+                            		name: 'Chrome',
+                            		y: 12.8,
+                            		sliced: true,
+                            		selected: true
+                            	},
+                            	['Safari', 8.5],
+                            	['Opera', 6.2],
+                            	['Others', 0.7]
+                        	]
+                        }]
+                    });
+                }
+            });
+        </xmp>
+	    <h5>jquery:</h5>
+	    <xmp class="xmpCtrl">
+            $(function () {
+                $('#container').highcharts({
+                    chart: {
+                        plotBackgroundColor: null,
+                        plotBorderWidth: null,
+                        plotShadow: false
+                    },
+                    title: {
+                        text: 'Browser market shares at a specific website, 2010'
+                    },
+                    tooltip: {
+                        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                    },
+                    plotOptions: {
+                        pie: {
+                            allowPointSelect: true,
+                            cursor: 'pointer',
+                            dataLabels: {
+                                enabled: false
+                            },
+                            showInlegend: true
+                        }
+                    },
+                    series: [{
+                        type: 'pie',
+                        name: 'Browser share',
+                        data: [
+                        	['Firefox', 45.0],
+                        	['IE', 26.8],
+                        	{
+                        		name: 'Chrome',
+                        		y: 12.8,
+                        		sliced: true,
+                        		selected: true
+                        	},
+                        	['Safari', 8.5],
+                        	['Opera', 6.2],
+                        	['Others', 0.7]
+                    	]
+                    }]
+                });
+            });
+        </xmp>
+    </div>
+</div>
