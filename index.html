@@ -12,8 +12,8 @@
     </div>
 
     <div ng-controller="NavController" class="tab-nav-bar">
-        <div class="tab-nav" ng-repeat="nav in navs" ng-class="{ on: navIndex === nav.url}">
-            <a ng-click="changeLocation(nav.url)"><span ng-bind="nav.name"></span></a>
+        <div class="tab-nav" ng-repeat="nav in navs" ng-class="{ on: navIndex === nav.url}" ng-click="changeLocation(nav.url)">
+            <span ng-bind="nav.name"></span>
         </div>
     </div>
 
