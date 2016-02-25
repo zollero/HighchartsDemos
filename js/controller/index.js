@@ -46,7 +46,7 @@ app.config(["$routeProvider", function($routeProvider) {
 }]).controller("HomeController", ["$scope", function($scope) {
     $scope.items = [{
         title: "介绍",
-        content: ["Highcharts 是一个用纯JavaScript编写的一个图表库， 能够很简单便捷的在web网站或是web应用程序添加有交互性的图表。HighCharts支持的图表类型有曲线图、区域图、柱状图、饼状图、散状点图和综合图表。另外HighCharts还有很好的兼容性，能够完美支持当前大多数浏览器。"]
+        content: ["Highcharts 是一个用纯JavaScript编写的图表库， 能够很简单便捷的在web网站或是web应用程序添加有交互性的图表。HighCharts支持的图表类型有曲线图、区域图、柱状图、饼状图、散状点图和综合图表。另外HighCharts还有很好的兼容性，能够完美支持当前大多数浏览器。"]
     }, {
         title: "特点",
         content: [
