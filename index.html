@@ -1,17 +1,27 @@
 <!DOCTYPE html>
-<html ng-app="highchartDemoApp">
+<html ng-app="HighchartDemoApp">
 <head>
     <meta charset="UTF-8">
     <title>Highcharts 示例</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1 user-scalable=no">
-    <link rel="stylesheet" href="lib/ionic/release/css/ionic.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <ion-nav-view class="slide-left-right"></ion-nav-view>
+    <div class="content">
+        <ng-view></ng-view>
+    </div>
 
-    <script src="lib/ionic/release/js/ionic.bundle.js"></script>
+    <div ng-controller="NavController" class="tab-nav-bar">
+        <div class="tab-nav" ng-repeat="nav in navs" ng-class="{ on: navIndex === nav.url}" ng-click="changeLocation(nav.url)">
+            <span ng-bind="nav.name"></span>
+        </div>
+    </div>
+
+    <script src="lib/jquery/dist/jquery.js"></script>
+    <script src="lib/highcharts/highcharts.js"></script>
+    <script src="lib/angular/angular.js"></script>
+    <script src="lib/angular-route/angular-route.js"></script>
     <script src="lib/oclazyload/dist/ocLazyLoad.js"></script>
-    <script src="js/controller/route.js"></script>
+    <script src="js/controller/index.js"></script>
 </body>
 </html>

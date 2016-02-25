@@ -1,4 +1,41 @@
-
+html, body {
+    margin: 0;
+    padding: 0;
+}
 p {
     font-family: "微软雅黑";
+}
+
+.content {
+    margin: 10px 10px 50px;
+}
+
+.des-img {
+    width: 100%;
+}
+
+.tab-nav-bar {
+    height: 40px;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    background: #2196F3;
+    display: -webkit-box;
+    color: #fff;
+}
+
+.tab-nav-bar .tab-nav {
+    text-align: center;
+    line-height: 40px;
+    -webkit-box-flex: 1;
+    width: 1px;
+}
+
+.tab-nav.on {
+    color: #ffc900;
+    background: #3F51B5;
+}
+
+#container {
+    width: 100%;
 }
