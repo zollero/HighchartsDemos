@@ -1,4 +1,4 @@
-### Highchart Demos
+### Highcharts Demos
 
 该项目展示Highcharts实例引用模板代码和效果。
 

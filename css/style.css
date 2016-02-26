@@ -16,41 +16,40 @@ h1, h2, h3, h4, h5, h6, span, p {
 }
 
 .tab-nav-bar {
-    height: 35px;
+    height: 40px;
     width: 100%;
     position: fixed;
     bottom: 0;
-    background: #b2b2b2;
+    background: #1976D2;
     display: -webkit-box;
-    color: #444;
+    color: #fff;
 }
 
 .tab-nav-bar .tab-nav {
     text-align: center;
-    line-height: 35px;
+    line-height: 40px;
     -webkit-box-flex: 1;
     width: 1px;
 }
 
 .tab-nav.on {
-    color: #f2f2f2;
+    color: #FF9800;
 }
 
 .code-area .code-block {
-    background-color: #4d4d4d;
-    color: white;
+    overflow: auto;
+    color: #000000;
 }
 .code-area .code-block h5 {
-    margin: 10px 0;
     color: #0d3349;
-    background: #f2f2f2;
+    background: #ffffff;
 }
 .code-area .code-block .xmpCtrl {
-     margin-top: 0;
-     margin-bottom: 0px;
-     margin: 0 0 0 -70px;
-     padding: 10px;
-     max-height: 300px;
-     overflow: auto;
-     white-space: pre;
+    background-color: #B6B6B6;
+    margin: 0 0 0 -70px;
+    padding: 0;
+    font-size: 15px;
+    max-height: 300px;
+    overflow: auto;
+    white-space: pre;
  }
