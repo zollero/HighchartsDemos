@@ -5,7 +5,6 @@
   "eqnull": true,
   "newcap": true,
   "noarg": true,
-  //"undef": true,
   "unused": true,
   "browser": true,
   "devel": true,
