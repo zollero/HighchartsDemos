@@ -59,6 +59,7 @@ app.config(["$routeProvider", function($routeProvider) {
 //线性图表
 app.directive("lineChart", function() {
     return function(scope, element) {
+		console.log(element);
         // 线性图表调用
         $(element).highcharts({
             chart: {
