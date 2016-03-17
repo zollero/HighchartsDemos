@@ -6,13 +6,17 @@ app.config(["$routeProvider", function($routeProvider) {
         templateUrl: "./views/home.html",
         controller: 'HomeController'
     }).when("/line", {
-        templateUrl: "./views/line-list.html"
+        templateUrl: "./views/line-list.html",
+		controller: "LineController"
     }).when("/pie", {
-        templateUrl: "./views/pie-list.html"
+        templateUrl: "./views/pie-list.html",
+		controller: "PieController"
     }).when("/column", {
-        templateUrl: "./views/column-list.html"
-    }).when("/complex", {
-        templateUrl: "./views/complex-list.html"
+        templateUrl: "./views/column-list.html",
+		controller: "ColumnController"
+    }).when("/combine", {
+        templateUrl: "./views/combine-list.html",
+		controller: "CombineController"
     }).otherwise({
         redirectTo: "/"
     });
@@ -33,7 +37,7 @@ app.config(["$routeProvider", function($routeProvider) {
         url: "/column"
     }, {
         name: "复合",
-        url: "/complex"
+        url: "/combine"
     }];
     $scope.changeLocation = function(url) {
         $scope.navIndex = url;
@@ -42,258 +46,128 @@ app.config(["$routeProvider", function($routeProvider) {
 }]).controller("HomeController", ["$scope", function($scope) {
     $scope.items = [{
         title: "介绍",
-        content: ["Highcharts 是一个用纯JavaScript编写的图表库， 能够很简单便捷的在web网站或是web应用程序添加有交互性的图表。HighCharts支持的图表类型有曲线图、区域图、柱状图、饼状图、散状点图和综合图表。另外HighCharts还有很好的兼容性，能够完美支持当前大多数浏览器。"]
-    }, {
-        title: "特点",
         content: [
-            "1. 兼容性：HighCharts采用纯JavaScript编写，兼容当今大部分的浏览器，包括Safari、IE和火狐等等；",
-            "2. 图表类型：HighCharts支持图表类型，包括曲线图、区域图、柱状图、饼状图、散状点图和综合图表等等，可以满足各种需求。",
-            "3. 不受语言约束：HighCharts可以在大多数的WEB开发中使用，并且对个人用户免费，支持ASP，PHP，JAVA，.NET等多种语言中使用。",
-            "4. 放大功能：HighCharts可以大量数据集中显示，并且可以放大某一部分的图形，将图表的精度增大，进行详细的显示，可以选择横向或者纵向放大",
-            "5. 外部数据：从服务器载入动态数据。",
-            "6. 文字旋转：支持在任意方向的标签旋转。"
-        ]
+			"DPCharts 组件，是在Highcharts的基础上，对Highcharts公共属性进行封装而成。它保留了Highcharts生成图表的灵活性，并减少了生成图表时的繁琐代码操作。",
+			"Highcharts 是一个用纯 JavaScript 编写的图标库，能够狠简单便捷的在 web应用程序或移动端web程序添加有交互性的图表。Highcharts 支持的图表类型有线性图、柱状图、饼状图、散装图和综合图表。另外，Highcharts有很好的兼容性，能够完美支持当前大多数浏览器。"
+		]
     }];
+}]).controller("LineController", ["$scope", function($scope) {
+	//线性图
+	new DPCharts({
+		renderTo: "line-chart",
+		chartType: "line",
+		xCategories: ['一月', '二月', '三月', '四月', '五月', '六月'],
+		title: "降雨量 (mm)",
+		series: [{
+			name: 'Tokyo',
+			data: [49.9, 71.5, 106.4, 129.2, 144.0, 176.0]
+		}, {
+			name: 'New York',
+			data: [83.6, 78.8, 98.5, 93.4, 106.0, 84.5]
+
+		}]
+	});
+}]).controller("ColumnController", ["$scope", function($scope) {
+	//柱状图
+	new DPCharts({
+		renderTo: "column-chart",
+		chartType: "column",
+		xCategories: ['一月', '二月', '三月', '四月', '五月', '六月'],
+		yAxisTitle: "降雨量 (mm)",
+		xAxisTitle: "上半年月份",
+		title: "上半年降雨将统计",
+		subtitle: "四个城市降雨量数据",
+		legend: {enabled: true},
+		labels: {
+			enableY: true
+		},
+		series: [{
+			name: '北京',
+			data: [49.9, 71.5, 106.4, 129.2, 144.0, 176.0]
+		}, {
+			name: '广州',
+			data: [83.6, 78.8, 98.5, 93.4, 106.0, 84.5]
+
+		}, {
+			name: '上海',
+			data: [48.9, 38.8, 39.3, 41.4, 47.0, 48.3]
+
+		}, {
+			name: '杭州',
+			data: [42.4, 33.2, 34.5, 39.7, 52.6, 75.5]
+		}]
+	});
+}]).controller("PieController", ["$scope", function($scope) {
+	//饼状图
+	new DPCharts({
+		renderTo: "pie-chart",
+		chartType: "pie",
+		title: '2015年1月至5月浏览器市场占有率',
+		series: [{
+			name: '品牌',
+			data: [{
+				name: 'Microsoft Internet Explorer',
+				y: 56.33
+			}, {
+				name: 'Chrome',
+				y: 24.03
+			}, {
+				name: 'Firefox',
+				y: 10.38
+			}, {
+				name: 'Safari',
+				y: 4.77
+			}, {
+				name: 'Opera',
+				y: 0.91
+			}, {
+				name: 'Proprietary or Undetectable',
+				y: 0.2
+			}]
+		}]
+	});
+}]).controller("CombineController", ["$scope", function($scope) {
+	//饼状图
+	new DPCharts({
+		renderTo: "combine-chart",
+		chartType: "combine",
+		title: '复合型图表',
+		subtitle: '包含线性、柱状和饼状图',
+		labels: {
+			enableY: true
+		},
+		series: [{
+			type: 'column',
+			name: 'Jane',
+			data: [3, 2, 1, 3, 4]
+		}, {
+			type: 'column',
+			name: 'John',
+			data: [2, 3, 5, 7, 6]
+		}, {
+			type: 'column',
+			name: 'Joe',
+			data: [4, 3, 3, 9, 0]
+		}, {
+			type: 'spline',
+			name: 'Average',
+			data: [3, 2.67, 3, 6.33, 3.33]
+		}, {
+			type: 'pie',
+			name: '总量',
+			data: [{
+				name: 'Jane',
+				y: 13
+			}, {
+				name: 'John',
+				y: 23
+			}, {
+				name: 'Joe',
+				y: 19
+			}],
+			center: [80, 80],
+			size: 100
+		}]
+	});
 }]);
-
-//线性图表
-app.directive("lineChart", function() {
-    return function(scope, element) {
-		console.log(element);
-        // 线性图表调用
-        $(element).highcharts({
-            chart: {
-                type: 'line'
-            },
-            title: {
-                text: 'Monthly Average Temperature'
-            },
-            subtitle: {
-                text: 'Source: WorldClimate.com'
-            },
-            xAxis: {
-                categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-            },
-            yAxis: {
-                title: {
-                    text: 'Temperature (°C)'
-                }
-            },
-            tooltip: {
-                enabled: false,
-                formatter: function() {
-                    return '<b>'+ this.series.name +'</b><br/>'+this.x +': '+ this.y +'°C';
-                }
-            },
-            plotOptions: {
-                line: {
-                    dataLabels: {
-                        enabled: true
-                    },
-                    enableMouseTracking: false
-                }
-            },
-            series: [{
-                name: 'Tokyo',
-                data: [7.0, 6.9, 9.5, 14.5, 18.4, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6]
-            }, {
-                name: 'London',
-                data: [3.9, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0, 16.6, 14.2, 10.3, 6.6, 4.8]
-            }]
-        });
-    };
-});
-
-//饼图
-app.directive("pieChart", function() {
-	return function(scope, element) {
-		//饼图调用
-		$(element).highcharts({
-			chart: {
-	            plotBackgroundColor: null,
-	            plotBorderWidth: null,
-	            plotShadow: false
-	        },
-	        title: {
-	            text: 'Browser market shares at a specific website, 2010'
-	        },
-	        tooltip: {
-	    	    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-	        },
-			plotOptions: {
-                pie: {
-                    allowPointSelect: true,
-                    cursor: 'pointer',
-                    dataLabels: {
-                        enabled: false
-                    },
-                    showInLegend: true
-                }
-            },
-	        series: [{
-	            type: 'pie',
-	            name: 'Browser share',
-	            data: [
-	                ['Firefox',   45.0],
-	                ['IE',       26.8],
-	                {
-	                    name: 'Chrome',
-	                    y: 12.8,
-	                    sliced: true,
-	                    selected: true
-	                },
-	                ['Safari',    8.5],
-	                ['Opera',     6.2],
-	                ['Others',   0.7]
-	            ]
-	        }]
-		});
-	};
-});
-
-//柱状图
-app.directive("columnChart", function() {
-	return function(scope, element) {
-		//柱状图调用
-		$(element).highcharts({
-			chart: {
-	            type: 'column'
-	        },
-	        title: {
-	            text: 'Monthly Average Rainfall'
-	        },
-	        subtitle: {
-	            text: 'Source: WorldClimate.com'
-	        },
-	        xAxis: {
-	            categories: [
-	                'Jan',
-	                'Feb',
-	                'Mar',
-	                'Apr',
-	                'May',
-	                'Jun',
-	                'Jul',
-	                'Aug',
-	                'Sep',
-	                'Oct',
-	                'Nov',
-	                'Dec'
-	            ]
-	        },
-	        yAxis: {
-	            min: 0,
-	            title: {
-	                text: 'Rainfall (mm)'
-	            }
-	        },
-	        tooltip: {
-	            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-	            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-	                '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
-	            footerFormat: '</table>',
-	            shared: true,
-	            useHTML: true
-	        },
-	        plotOptions: {
-	            column: {
-	                pointPadding: 0.2,
-	                borderWidth: 0
-	            }
-	        },
-	        series: [{
-	            name: 'Tokyo',
-	            data: [49.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4]
-	
-	        }, {
-	            name: 'New York',
-	            data: [83.6, 78.8, 98.5, 93.4, 106.0, 84.5, 105.0, 104.3, 91.2, 83.5, 106.6, 92.3]
-	
-	        }]
-		});
-	};
-});
-
-//柱状、曲线、饼图混合图
-app.directive("complexChart", function() {
-	return function(scope, element) {
-		$(element).highcharts({
-			chart: {                                                          
-	        },                                                                
-	        title: {                                                          
-	            text: 'Combination chart'                                     
-	        },                                                                
-	        xAxis: {                                                          
-	            categories: ['Apples', 'Oranges', 'Pears', 'Bananas', 'Plums']
-	        },                                                                
-	        tooltip: {                                                        
-	            formatter: function() {                                       
-	                var s;                                                    
-	                if (this.point.name) { // the pie chart                   
-	                    s = ''+                                               
-	                        this.point.name +': '+ this.y +' fruits';         
-	                } else {                                                  
-	                    s = ''+                                               
-	                        this.x  +': '+ this.y;                            
-	                }                                                         
-	                return s;                                                 
-	            }                                                             
-	        },                                                                
-	        labels: {                                                         
-	            items: [{                                                     
-	                html: 'Total fruit consumption',                          
-	                style: {                                                  
-	                    left: '20px',                                         
-	                    top: '8px',                                           
-	                    color: 'black'                                        
-	                }                                                         
-	            }]                                                            
-	        },                                                                
-	        series: [{                                                        
-	            type: 'column',                                               
-	            name: 'Jane',                                                 
-	            data: [3, 2, 1, 3, 4]                                         
-	        }, {                                                              
-	            type: 'column',                                               
-	            name: 'John',                                                 
-	            data: [2, 3, 5, 7, 6]                                         
-	        }, {                                                              
-	            type: 'column',                                               
-	            name: 'Joe',                                                  
-	            data: [4, 3, 3, 9, 0]                                         
-	        }, {                                                              
-	            type: 'spline',                                               
-	            name: 'Average',                                              
-	            data: [3, 2.67, 3, 6.33, 3.33],                               
-	            marker: {                                                     
-	            	lineWidth: 2,                                               
-	            	lineColor: Highcharts.getOptions().colors[3],               
-	            	fillColor: 'white'                                          
-	            }                                                             
-	        }, {                                                              
-	            type: 'pie',                                                  
-	            name: 'Total consumption',                                    
-	            data: [{                                                      
-	                name: 'Jane',                                             
-	                y: 13,                                                    
-	                color: Highcharts.getOptions().colors[0] // Jane's color  
-	            }, {                                                          
-	                name: 'John',                                             
-	                y: 23,                                                    
-	                color: Highcharts.getOptions().colors[1] // John's color  
-	            }, {                                                          
-	                name: 'Joe',                                              
-	                y: 19,                                                    
-	                color: Highcharts.getOptions().colors[2] // Joe's color   
-	            }],                                                           
-	            center: [40, 60],                                            
-	            size: 100,                                                    
-	            showInLegend: false,                                          
-	            dataLabels: {                                                 
-	                enabled: false                                            
-	            }                                                             
-	        }]
-		});
-	};
-});
 

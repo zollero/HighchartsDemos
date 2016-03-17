@@ -37,8 +37,8 @@ var DPCharts = (function(window, document) {
             xAxisTitle: "",
             //y坐标轴标题，显示在y轴线左边垂直居中
             yAxisTitle: "",
-            //是否显示x、y轴坐标轴，默认都显示
-            labels: {enableX: true, enableY: true},
+            //是否显示x、y轴坐标轴，默认不显示y轴
+            labels: {enableX: true, enableY: false},
             //类别轴，显示在x轴上，每个元素为一个类别
             xCategories: [],
             //数据集合
@@ -49,7 +49,7 @@ var DPCharts = (function(window, document) {
             legend: {enabled: false, layout: "horizontal", floating: false, backgroundColor: "#fff", x: 0, y: 0},
             //图表序列（Series）的默认颜色数组，即图表的第 n 个序列的颜色是该数组的第 n 个值。
             //当序列的数量超过颜色数组的长度，后续的序列将会重复调用该数组里的值
-            colors: ['#0099CC', '#FF9900', '#99CC33', '#FF6666', '#993366', '#009933', '#FF9655',
+            colors: ['#3493cd', '#f6b446', '#99CC33', '#FF6666', '#993366', '#009933', '#FF9655',
                 '#FFF263', '#6AF9C4'],
             //x、y轴标题样式
             axisTitleStyle: {fontSize: "14px", "fontFamily": 'Microsoft YaHei,arial',color:'#606060'},
@@ -121,6 +121,7 @@ var DPCharts = (function(window, document) {
             for (var i = 0; i< xCategories.length; i++) {
                 xAxisCategories.push(xCategories[i].toString());
             }
+            //x轴默认设置
             options.xAxisSettingArr = {
                 categories: xAxisCategories,
                 title: {
@@ -133,10 +134,17 @@ var DPCharts = (function(window, document) {
                     style: options.labelsStyle,
                     rotation: 0
                 },
+                tickInterval: 1,
+                lineColor: "#808285",
+                lineWidth:2,
+                gridLineWidth: 1,
+                gridLineColor: "#ddd",
+                gridLineDashStyle: "ShortDash",
+                tickColor: "#ffffff",
                 crosshair: true //显示点击后的阴影（column有用）
             };
 
-            //y 轴设置
+            //y轴默认设置
             var temp = {
                 title: {
                     text: yAxisTitle,
@@ -149,7 +157,15 @@ var DPCharts = (function(window, document) {
                 startOnTick: false,
                 endOnTick: true,
                 minPadding: 0.1,
-                maxPadding: 0.1
+                maxPadding: 0.1,
+                gridLineColor: "#ddd",
+                gridLineDashStyle: "ShortDash",
+                tickmarkPlacement: 'on',
+                plotLines: [{
+                    value: 0,
+                    width: 1,
+                    color: '#808080'
+                }]
             };
             temp.opposite = false;
             options.yAxisSettingArr.push(temp);
